@@ -26,9 +26,9 @@ void main() async {
           var parts = line.split(' ');
           List<int> boardRow = [];
           for(var part in parts){
-            try {
+            if(part.isNotEmpty) {
               boardRow.add(int.parse(part));
-            } on FormatException {}
+            }
           }
           boardPieces.add(boardRow);
           // boards are always 5x5
