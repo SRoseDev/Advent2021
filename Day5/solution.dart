@@ -1,9 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
-import 'dart:math';
-
-import 'package:sortedmap/sortedmap.dart';
 
 void main() async {
   // get input
