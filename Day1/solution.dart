@@ -4,7 +4,7 @@ import 'dart:async';
 
 void main() async {
   // get input
-  final file = File('input.txt');
+  final file = File('Day1/input.txt');
   Stream<String> lines = file.openRead()
       .transform(utf8.decoder)       // Decode bytes to UTF-8.
       .transform(LineSplitter());    // Convert stream to individual lines.
