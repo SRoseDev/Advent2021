@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:collection/collection.dart';
 import 'package:tuple/tuple.dart';
 
 void main() async {
@@ -32,7 +32,7 @@ void main() async {
   // for(var row in expandedRiskMap){
   //   print(row.join());
   // }
-  findShortestPathRisk(expandedRiskMap);
+  findShortestPathRisk(expandedRiskMap); // 2973 too high, 2900 not correct
 
 }
 
@@ -74,7 +74,9 @@ void findShortestPathRisk(List<List<int>> riskMap) {
   weights[Tuple2(0,0)] = 0;
   // keep track of exhausted nodes
   Set<Tuple2<int, int>> exhaustedNodes = Set();
-  Queue<Tuple2<int, int>> toCheck = Queue();
+  PriorityQueue<Tuple2<int, int>> toCheck = PriorityQueue((a,b) =>
+    weights[Tuple2(a.item1, a.item2)].compareTo(weights[Tuple2(b.item1, b.item2)])
+  );
   // add starting node
   toCheck.add(Tuple2(0, 0));
   var isWorking = toCheck.contains(Tuple2(0, 0));
